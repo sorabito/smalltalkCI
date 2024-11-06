@@ -466,10 +466,11 @@ pharo::test_project() {
 ################################################################################
 configure_smalltalk_repository() {
     smalltalk_repository="${SMALLTALK_REPOSITORY:=pharo-repository}"
+    bld_dir = "${TRAVIS_BUILD_DIR:-$GITHUB_WORKSPACE}"
 
-    ln -s "${TRAVIS_BUILD_DIR}/${smalltalk_repository}" "${SMALLTALK_CI_BUILD}/${smalltalk_repository}"
+    ln -s "${bld_dir}/${smalltalk_repository}" "${SMALLTALK_CI_BUILD}/${smalltalk_repository}"
 
-    ln -s "${TRAVIS_BUILD_DIR}/patch" "${SMALLTALK_CI_BUILD}/patch"
+    ln -s "${bld_dir}/patch" "${SMALLTALK_CI_BUILD}/patch"
 }
 
 ################################################################################
