@@ -13,7 +13,7 @@
 
 pharo::get_image_url() {
   local smalltalk_name=$1
-
+  local current_dir_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   case "${smalltalk_name}" in
     "Pharo64-alpha"|"Pharo-alpha")
       echo "get.pharo.org/64/alpha"
@@ -25,7 +25,8 @@ pharo::get_image_url() {
       echo "get.pharo.org/64/130"
       ;;
     "Pharo64-12")
-      echo "get.pharo.org/64/120"
+      # echo "get.pharo.org/64/120"
+      echo "file://${current_dir_path}/vm120.sh"
       ;;
     "Pharo64-11")
       echo "get.pharo.org/64/110"
