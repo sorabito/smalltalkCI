@@ -13,7 +13,6 @@
 
 pharo::get_image_url() {
   local smalltalk_name=$1
-  local current_dir_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   case "${smalltalk_name}" in
     "Pharo64-alpha"|"Pharo-alpha")
       echo "get.pharo.org/64/alpha"
@@ -25,8 +24,7 @@ pharo::get_image_url() {
       echo "get.pharo.org/64/130"
       ;;
     "Pharo64-12")
-      # echo "get.pharo.org/64/120"
-      echo "file://${current_dir_path}/vm120.sh"
+      echo "get.pharo.org/64/120"
       ;;
     "Pharo64-11")
       echo "get.pharo.org/64/110"
@@ -145,6 +143,7 @@ pharo::get_vm_url() {
   local smalltalk_name=$1
   local stable_version=12
   local alpha_version=13
+  local current_dir_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
   case "${smalltalk_name}" in
     # NOTE: vmLatestXX should be updated every time new Pharo is released
@@ -158,7 +157,8 @@ pharo::get_vm_url() {
       echo "get.pharo.org/64/vm130"
       ;;
     "Pharo64-12"|"Moose64-12"|"Moose64-trunk")
-      echo "get.pharo.org/64/vm120"
+      # echo "get.pharo.org/64/vm120"
+      echo "file://${current_dir_path}/vm120.sh"
       ;;
     "Pharo64-11"|"Moose64-11")
       echo "get.pharo.org/64/vm110"
